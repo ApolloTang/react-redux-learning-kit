@@ -28,8 +28,8 @@ const mapStoreToProps = (store, ownProps) => {
   const filteredTodos = getFilteredTodos(unFilteredTodos, filterType);
 
   return {
-    // todos: filteredTodos
-    todos: mockData
+    todos: filteredTodos
+    // todos: mockData
   }
 };
 
