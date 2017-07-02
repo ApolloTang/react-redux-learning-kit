@@ -2,19 +2,19 @@
 @import "~common/styles-init/index";
 
 :local(.module-style) {
-    .mixin-module-style( hsl(35,50%,95%) );
-    min-height: 500px;
-    .oban-clearfix();
-    .layout {
-        padding: 5px;
-        width: 100%;
-        > div {
-            width: 100%;
-        }
-        > div + div {
-            margin-top: 10px;
-        }
-        .todos-list-container {
-        }
+  .mixin-module-style( hsl(35,50%,95%) );
+  min-height: 500px;
+  .mixin-clearfix();
+  .layout {
+    padding: 5px;
+    width: 100%;
+    > div {
+      width: 100%;
     }
+    > div + div {
+      margin-top: 10px;
+    }
+    .todos-list-container {
+    }
+  }
 }

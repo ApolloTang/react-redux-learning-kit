@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import  Action_todoList from './actions';
+import Action_todoList from './actions';
+import mockData from './mock-data.js';
 
 function getFilteredTodos(todos, filterType='all') {
   const todos_array = _(todos)
@@ -25,8 +26,10 @@ const mapStoreToProps = (store, ownProps) => {
   const filterType = _.get(store, `todosUiControl.filterType`, 'all');
   const unFilteredTodos =  _.get(store, `todos`, {});
   const filteredTodos = getFilteredTodos(unFilteredTodos, filterType);
+
   return {
-    todos: filteredTodos
+    // todos: filteredTodos
+    todos: mockData
   }
 };
 
