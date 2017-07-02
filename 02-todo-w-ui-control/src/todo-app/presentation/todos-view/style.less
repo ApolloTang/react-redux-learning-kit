@@ -1,0 +1,40 @@
+/* +++++++++++++++++++++++++++++++++ style-file[start] module/todos-view/style.less */
+
+@import "~common/styles-init/index";
+
+:local(.module-style) {
+    .oban-clearfix();
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    .todo-item + .todo-item {
+        margin-top: 1px;
+    }
+    .todo-item {
+        height: 25px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        .todo-item-text {
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(~"100% - 25px");
+        }
+        .todo-item-delete {
+            display: none;
+            padding: 1px;
+            text-align: center;
+            padding: x;
+            border: 1px solid hsl(0, 0%, 50%);
+            width: 23px;
+        }
+    }
+    .todo-item:hover {
+        background: hsl(0, 0%, 80%);
+        .todo-item-delete {
+            display: inline-block;
+        }
+    }
+}
+/* +++++++++++++++++++++++++++++++++ style-file[end]   module/todos-view/style.less */

@@ -1,0 +1,22 @@
+@import "~common/styles-init/index";
+.oban-normalize();
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: @global-background-color;
+    color: @global-text-color;
+    font-family: @global-default-font;
+}
+
+#root-container {
+    .mixin-clearfix();
+}
+
