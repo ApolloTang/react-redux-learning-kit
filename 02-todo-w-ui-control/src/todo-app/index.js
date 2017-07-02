@@ -26,5 +26,5 @@ const TodoApp = (props) => {
   );
 };
 
-// const TodoApp = () => <div>test</div>
+// const TodoApp = () => <div>Test TodoApp</div>
 export default TodoApp;

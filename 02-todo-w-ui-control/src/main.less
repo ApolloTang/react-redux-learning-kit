@@ -2,22 +2,25 @@
 @import "~common/styles-init/index";
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    height: 100%;
+  height: 100%;
+  font-family: @global-default-font;
 }
 
 body {
-    height: 100%;
-    background-color: @global-background-color;
-    color: @global-text-color;
-    font-family: @global-default-font;
+  height: 100%;
+  .mixin-clearfix();
+
+  background-color: @global-background-color;
+  color: @global-text-color;
 }
 
 #root-container {
-    .mixin-clearfix();
+  height: 100%;
+  .mixin-clearfix();
 }
 
 
