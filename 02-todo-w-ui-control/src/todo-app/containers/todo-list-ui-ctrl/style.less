@@ -26,16 +26,18 @@
     padding-right: 5px;
     float: left;
 
+    span, a {
+      text-decoration: none;
+      color:@global-text-color;
+      cursor: pointer;
+    }
+
     &.isActive {
       span, a {
         text-decoration: underline;
       }
     }
 
-    span, a {
-      text-decoration: none;
-      color:@global-text-color;
-    }
   }
 
 
