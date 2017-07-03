@@ -3,7 +3,7 @@
 :local(.module-style) {
   position: relative;
   width: 100%;
-  @offset: 20px;
+  @offset: 5px;
   padding-bottom: @offset;
 
   .todoTextInput {
@@ -16,13 +16,17 @@
 
     @media @layout_smartphone {
       .text__size_relative (@size: 2);
-      padding: 1rem;
+      padding: 0 1rem;
     }
     @media @layout_tablet {
-      .text__size_relative (@size: 5);
+      .text__size_relative (@size: 4);
+      padding: 0 1.5rem;
+      padding-top: 1rem;
     }
     @media @layout_pc {
-      .text__size_relative (@size: 5);
+      .text__size_relative (@size: 4);
+      padding: 0 1.5rem;
+      padding-top: 1rem;
     }
 
   }

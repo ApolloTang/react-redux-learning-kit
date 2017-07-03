@@ -6,10 +6,10 @@ import style from './style';
 
 const FilterButton = ({filterType, onClick, currentfilterType}) => {
   if ( filterType === currentfilterType ) {
-    return <div><span>{filterType}</span></div>
+    return <div className="filterButton isActive"><span>{filterType}</span></div>
   }
   return (
-    <div>
+    <div className="filterButton">
       <a href="#"
          onClick={e => {
            e.preventDefault()
@@ -35,6 +35,7 @@ class TodoListFilterSettingCtrl extends Component {
     const currentfilterType = this.props.filterType;
     return (
       <div className={`todo-list-ui-ctrl ${style['module-style']}`} >
+        <div className="label"><span>Show:{' '}</span></div>
         <FilterButton filterType='all'       onClick={this.handle_filterChanged} currentfilterType={currentfilterType} />
         <FilterButton filterType='active'    onClick={this.handle_filterChanged} currentfilterType={currentfilterType} />
         <FilterButton filterType='completed' onClick={this.handle_filterChanged} currentfilterType={currentfilterType} />

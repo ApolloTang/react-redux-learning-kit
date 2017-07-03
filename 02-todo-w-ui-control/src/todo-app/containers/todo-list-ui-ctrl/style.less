@@ -1,10 +1,32 @@
-/* +++++++++++++++++++++++++++++++++ style-file[start] modules/todo-lislt-filter-setting.less */
-
 @import "~common/styles-init/index";
 
 :local(.module-style) {
-    .is-active {
-        color: red;
+  .mixin-clearfix();
+
+  @media @layout_smartphone {
+    padding: 0 1rem;
+  }
+  @media @layout_tablet {
+    padding: 0 1.5rem;
+    padding-top: .5rem;
+  }
+  @media @layout_pc {
+    padding: 0 1.5rem;
+    padding-top: .5rem;
+  }
+
+  .filterButton, .label {
+    padding: 5px;
+    float: left;
+    &.isActive {
+      text-decoration: underline;
     }
+
+    span, a {
+      text-decoration: none;
+      color:@global-text-color;
+    }
+  }
+
+
 }
-/* +++++++++++++++++++++++++++++++++ style-file[end]   modules/todo-lislt-filter-setting.less */
