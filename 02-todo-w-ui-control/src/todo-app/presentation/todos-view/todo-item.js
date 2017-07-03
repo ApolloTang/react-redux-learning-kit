@@ -12,7 +12,12 @@ const TodoItem = ({text, handleComplete, handleRemove, complete}) => {
         </span>
         <button
           className="todo-item-delete"
-          onClick={ handleRemove }>
+          onClick={
+            (e)=>{
+              e.stopPropagation();
+              handleRemove();
+            }
+            }>
           <i className="fa fa-times" aria-hidden="true"></i>
         </button>
       </div>
