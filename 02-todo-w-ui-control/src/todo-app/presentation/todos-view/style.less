@@ -3,14 +3,21 @@
 :local(.module-style) {
 
     .tiles {
-      outline: 1px solid red;
+      padding: 10px;
     }
 
-    @gutter: 10px;
+    .tile {
+      .elevation-2();
+      &:hover {
+        .elevation-4();
+      }
+    }
+
+    @gutter: 20px;
 
     @media @layout_smartphone {
       .tile {
-        .mixin-tiles(12, 12, @gutter, .25);
+        .mixin-tiles(12, 12, 10px, .25);
       }
       .tileContent {
         .mixin-tileContent();
@@ -35,46 +42,27 @@
       }
     }
 
+    .todoItemContent {
+      height: 100%;
+      padding: 5px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
 
-
-  // // .mixin-clearfix();
-  //
-  // // .mixin-row();
-  // outline: 1px solid red;
-  // width: 100%;
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  //
-  // .todo-item + .todo-item {
-  // }
-  // .todo-item {
-  //   @gutter: 10px;
-  //
-  //   .mixin-column(3,12, @gutter);
-  //   float: left;
-  //   min-height: 25px;
-  //   display: flex;
-  //   align-items: center;
-  //
-  //   .todo-item-text {
-  //     display: inline-block;
-  //     vertical-align: middle;
-  //     // width: calc(~"100% - 25px");
-  //   }
-  //   .todo-item-delete {
-  //     display: none;
-  //     padding: 1px;
-  //     text-align: center;
-  //     padding: x;
-  //     border: 1px solid hsl(0, 0%, 50%);
-  //     // width: 23px;
-  //   }
-  // }
-  // .todo-item:hover {
-  //   background: hsl(0, 0%, 80%);
-  //   .todo-item-delete {
-  //     display: inline-block;
-  //   }
-  // }
+      .todo-item-delete {
+        display:none;
+      }
+      &:hover {
+        .todo-item-delete{
+          display: block;
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          color:hsl(0, 0%, 40%);
+          @buttonSize: 30px;
+          .circleButton( @buttonSize, red, 0px);
+        }
+      }
+    }
 }
