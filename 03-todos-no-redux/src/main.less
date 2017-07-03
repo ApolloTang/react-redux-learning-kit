@@ -1,0 +1,26 @@
+
+@import "~common/styles-init/index";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: @global-default-font;
+}
+
+body {
+  height: 100%;
+  .mixin-clearfix();
+
+  background-color: @global-background-color;
+  color: @global-text-color;
+}
+
+#root-container {
+  height: 100%;
+  .mixin-clearfix();
+}
+
+

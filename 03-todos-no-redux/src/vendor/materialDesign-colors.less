@@ -1,0 +1,309 @@
+// From https://www.google.com/design/spec/style/color.html
+
+// Light backgrounds
+@materialDesign-lightBg-base: #000;
+@materialDesign-lightBg-text: fade(@materialDesign-lightBg-base, 87%);
+@materialDesign-lightBg-secondaryText: fade(@materialDesign-lightBg-base, 54%);
+@materialDesign-lightBg-disabledText: fade(@materialDesign-lightBg-base, 38%);
+@materialDesign-lightBg-hintText: fade(@materialDesign-lightBg-base, 38%);
+@materialDesign-lightBg-divider: fade(@materialDesign-lightBg-base, 12%);
+
+// Dark backgrounds
+@materialDesign-darkBg-base: #FFF;
+@materialDesign-darkBg-text: fade(@materialDesign-darkBg-base, 100%);
+@materialDesign-darkBg-secondaryText: fade(@materialDesign-darkBg-base, 7%);
+@materialDesign-darkBg-disabledText: fade(@materialDesign-darkBg-base, 3%);
+@materialDesign-darkBg-hintText: fade(@materialDesign-darkBg-base, 3%);
+@materialDesign-darkBg-divider: fade(@materialDesign-darkBg-base, 12%);
+
+// Red
+@materialDesign-red50: #FFEBEE;
+@materialDesign-red100: #FFCDD2;
+@materialDesign-red200: #EF9A9A;
+@materialDesign-red300: #E57373;
+@materialDesign-red400: #EF5350;
+@materialDesign-red500: #F44336;
+@materialDesign-red600: #E53935;
+@materialDesign-red700: #D32F2F;
+@materialDesign-red800: #C62828;
+@materialDesign-red900: #B71C1C;
+@materialDesign-redA100: #FF8A80;
+@materialDesign-redA200: #FF5252;
+@materialDesign-redA400: #FF1744;
+@materialDesign-redA700: #D50000;
+
+// Pink
+@materialDesign-pink50: #FCE4EC;
+@materialDesign-pink100: #F8BBD0;
+@materialDesign-pink200: #F48FB1;
+@materialDesign-pink300: #F06292;
+@materialDesign-pink400: #EC407A;
+@materialDesign-pink500: #E91E63;
+@materialDesign-pink600: #D81B60;
+@materialDesign-pink700: #C2185B;
+@materialDesign-pink800: #AD1457;
+@materialDesign-pink900: #880E4F;
+@materialDesign-pinkA100: #FF80AB;
+@materialDesign-pinkA200: #FF4081;
+@materialDesign-pinkA400: #F50057;
+@materialDesign-pinkA700: #C51162;
+
+// Purple
+@materialDesign-purple50: #F3E5F5;
+@materialDesign-purple100: #E1BEE7;
+@materialDesign-purple200: #CE93D8;
+@materialDesign-purple300: #BA68C8;
+@materialDesign-purple400: #AB47BC;
+@materialDesign-purple500: #9C27B0;
+@materialDesign-purple600: #8E24AA;
+@materialDesign-purple700: #7B1FA2;
+@materialDesign-purple800: #6A1B9A;
+@materialDesign-purple900: #4A148C;
+@materialDesign-purpleA100: #EA80FC;
+@materialDesign-purpleA200: #E040FB;
+@materialDesign-purpleA400: #D500F9;
+@materialDesign-purpleA700: #AA00FF;
+
+// Deep Purple
+@materialDesign-deepPurple50: #EDE7F6;
+@materialDesign-deepPurple100: #D1C4E9;
+@materialDesign-deepPurple200: #B39DDB;
+@materialDesign-deepPurple300: #9575CD;
+@materialDesign-deepPurple400: #7E57C2;
+@materialDesign-deepPurple500: #673AB7;
+@materialDesign-deepPurple600: #5E35B1;
+@materialDesign-deepPurple700: #512DA8;
+@materialDesign-deepPurple800: #4527A0;
+@materialDesign-deepPurple900: #311B92;
+@materialDesign-deepPurpleA100: #B388FF;
+@materialDesign-deepPurpleA200: #7C4DFF;
+@materialDesign-deepPurpleA400: #651FFF;
+@materialDesign-deepPurpleA700: #6200EA;
+
+// Indigo
+@materialDesign-indigo50: #E8EAF6;
+@materialDesign-indigo100: #C5CAE9;
+@materialDesign-indigo200: #9FA8DA;
+@materialDesign-indigo300: #7986CB;
+@materialDesign-indigo400: #5C6BC0;
+@materialDesign-indigo500: #3F51B5;
+@materialDesign-indigo600: #3949AB;
+@materialDesign-indigo700: #303F9F;
+@materialDesign-indigo800: #283593;
+@materialDesign-indigo900: #1A237E;
+@materialDesign-indigoA100: #8C9EFF;
+@materialDesign-indigoA200: #536DFE;
+@materialDesign-indigoA400: #3D5AFE;
+@materialDesign-indigoA700: #304FFE;
+
+// Blue
+@materialDesign-blue50: #E3F2FD;
+@materialDesign-blue100: #BBDEFB;
+@materialDesign-blue200: #90CAF9;
+@materialDesign-blue300: #64B5F6;
+@materialDesign-blue400: #42A5F5;
+@materialDesign-blue500: #2196F3;
+@materialDesign-blue600: #1E88E5;
+@materialDesign-blue700: #1976D2;
+@materialDesign-blue800: #1565C0;
+@materialDesign-blue900: #0D47A1;
+@materialDesign-blueA100: #82B1FF;
+@materialDesign-blueA200: #448AFF;
+@materialDesign-blueA400: #2979FF;
+@materialDesign-blueA700: #2962FF;
+
+// Light Blue
+@materialDesign-lightBlue50: #E1F5FE;
+@materialDesign-lightBlue100: #B3E5FC;
+@materialDesign-lightBlue200: #81D4FA;
+@materialDesign-lightBlue300: #4FC3F7;
+@materialDesign-lightBlue400: #29B6F6;
+@materialDesign-lightBlue500: #03A9F4;
+@materialDesign-lightBlue600: #039BE5;
+@materialDesign-lightBlue700: #0288D1;
+@materialDesign-lightBlue800: #0277BD;
+@materialDesign-lightBlue900: #01579B;
+@materialDesign-lightBlueA100: #80D8FF;
+@materialDesign-lightBlueA200: #40C4FF;
+@materialDesign-lightBlueA400: #00B0FF;
+@materialDesign-lightBlueA700: #0091EA;
+
+// Cyan
+@materialDesign-cyan50: #E0F7FA;
+@materialDesign-cyan100: #B2EBF2;
+@materialDesign-cyan200: #80DEEA;
+@materialDesign-cyan300: #4DD0E1;
+@materialDesign-cyan400: #26C6DA;
+@materialDesign-cyan500: #00BCD4;
+@materialDesign-cyan600: #00ACC1;
+@materialDesign-cyan700: #0097A7;
+@materialDesign-cyan800: #00838F;
+@materialDesign-cyan900: #006064;
+@materialDesign-cyanA100: #84FFFF;
+@materialDesign-cyanA200: #18FFFF;
+@materialDesign-cyanA400: #00E5FF;
+@materialDesign-cyanA700: #00B8D4;
+
+// Teal
+@materialDesign-teal50: #E0F2F1;
+@materialDesign-teal100: #B2DFDB;
+@materialDesign-teal200: #80CBC4;
+@materialDesign-teal300: #4DB6AC;
+@materialDesign-teal400: #26A69A;
+@materialDesign-teal500: #009688;
+@materialDesign-teal600: #00897B;
+@materialDesign-teal700: #00796B;
+@materialDesign-teal800: #00695C;
+@materialDesign-teal900: #004D40;
+@materialDesign-tealA100: #A7FFEB;
+@materialDesign-tealA200: #64FFDA;
+@materialDesign-tealA400: #1DE9B6;
+@materialDesign-tealA700: #00BFA5;
+
+// Green
+@materialDesign-green50: #E8F5E9;
+@materialDesign-green100: #C8E6C9;
+@materialDesign-green200: #A5D6A7;
+@materialDesign-green300: #81C784;
+@materialDesign-green400: #66BB6A;
+@materialDesign-green500: #4CAF50;
+@materialDesign-green600: #43A047;
+@materialDesign-green700: #388E3C;
+@materialDesign-green800: #2E7D32;
+@materialDesign-green900: #1B5E20;
+@materialDesign-greenA100: #B9F6CA;
+@materialDesign-greenA200: #69F0AE;
+@materialDesign-greenA400: #00E676;
+@materialDesign-greenA700: #00C853;
+
+// Light Green
+@materialDesign-lightGreen50: #F1F8E9;
+@materialDesign-lightGreen100: #DCEDC8;
+@materialDesign-lightGreen200: #C5E1A5;
+@materialDesign-lightGreen300: #AED581;
+@materialDesign-lightGreen400: #9CCC65;
+@materialDesign-lightGreen500: #8BC34A;
+@materialDesign-lightGreen600: #7CB342;
+@materialDesign-lightGreen700: #689F38;
+@materialDesign-lightGreen800: #558B2F;
+@materialDesign-lightGreen900: #33691E;
+@materialDesign-lightGreenA100: #CCFF90;
+@materialDesign-lightGreenA200: #B2FF59;
+@materialDesign-lightGreenA400: #76FF03;
+@materialDesign-lightGreenA700: #64DD17;
+
+// Lime
+@materialDesign-lime50: #F9FBE7;
+@materialDesign-lime100: #F0F4C3;
+@materialDesign-lime200: #E6EE9C;
+@materialDesign-lime300: #DCE775;
+@materialDesign-lime400: #D4E157;
+@materialDesign-lime500: #CDDC39;
+@materialDesign-lime600: #C0CA33;
+@materialDesign-lime700: #AFB42B;
+@materialDesign-lime800: #9E9D24;
+@materialDesign-lime900: #827717;
+@materialDesign-limeA100: #F4FF81;
+@materialDesign-limeA200: #EEFF41;
+@materialDesign-limeA400: #C6FF00;
+@materialDesign-limeA700: #AEEA00;
+
+// Yellow
+@materialDesign-yellow50: #FFFDE7;
+@materialDesign-yellow100: #FFF9C4;
+@materialDesign-yellow200: #FFF59D;
+@materialDesign-yellow300: #FFF176;
+@materialDesign-yellow400: #FFEE58;
+@materialDesign-yellow500: #FFEB3B;
+@materialDesign-yellow600: #FDD835;
+@materialDesign-yellow700: #FBC02D;
+@materialDesign-yellow800: #F9A825;
+@materialDesign-yellow900: #F57F17;
+@materialDesign-yellowA100: #FFFF8D;
+@materialDesign-yellowA200: #FFFF00;
+@materialDesign-yellowA400: #FFEA00;
+@materialDesign-yellowA700: #FFD600;
+
+// Amber
+@materialDesign-amber50: #FFF8E1;
+@materialDesign-amber100: #FFECB3;
+@materialDesign-amber200: #FFE082;
+@materialDesign-amber300: #FFD54F;
+@materialDesign-amber400: #FFCA28;
+@materialDesign-amber500: #FFC107;
+@materialDesign-amber600: #FFB300;
+@materialDesign-amber700: #FFA000;
+@materialDesign-amber800: #FF8F00;
+@materialDesign-amber900: #FF6F00;
+@materialDesign-amberA100: #FFE57F;
+@materialDesign-amberA200: #FFD740;
+@materialDesign-amberA400: #FFC400;
+@materialDesign-amberA700: #FFAB00;
+
+// Orange
+@materialDesign-orange50: #FFF3E0;
+@materialDesign-orange100: #FFE0B2;
+@materialDesign-orange200: #FFCC80;
+@materialDesign-orange300: #FFB74D;
+@materialDesign-orange400: #FFA726;
+@materialDesign-orange500: #FF9800;
+@materialDesign-orange600: #FB8C00;
+@materialDesign-orange700: #F57C00;
+@materialDesign-orange800: #EF6C00;
+@materialDesign-orange900: #E65100;
+@materialDesign-orangeA100: #FFD180;
+@materialDesign-orangeA200: #FFAB40;
+@materialDesign-orangeA400: #FF9100;
+@materialDesign-orangeA700: #FF6D00;
+
+// Deep Orange
+@materialDesign-deepOrange50: #FBE9E7;
+@materialDesign-deepOrange100: #FFCCBC;
+@materialDesign-deepOrange200: #FFAB91;
+@materialDesign-deepOrange300: #FF8A65;
+@materialDesign-deepOrange400: #FF7043;
+@materialDesign-deepOrange500: #FF5722;
+@materialDesign-deepOrange600: #F4511E;
+@materialDesign-deepOrange700: #E64A19;
+@materialDesign-deepOrange800: #D84315;
+@materialDesign-deepOrange900: #BF360C;
+@materialDesign-deepOrangeA100: #FF9E80;
+@materialDesign-deepOrangeA200: #FF6E40;
+@materialDesign-deepOrangeA400: #FF3D00;
+@materialDesign-deepOrangeA700: #DD2C00;
+
+// Brown
+@materialDesign-brown50: #EFEBE9;
+@materialDesign-brown100: #D7CCC8;
+@materialDesign-brown200: #BCAAA4;
+@materialDesign-brown300: #A1887F;
+@materialDesign-brown400: #8D6E63;
+@materialDesign-brown500: #795548;
+@materialDesign-brown600: #6D4C41;
+@materialDesign-brown700: #5D4037;
+@materialDesign-brown800: #4E342E;
+@materialDesign-brown900: #3E2723;
+
+// Grey
+@materialDesign-grey50: #FAFAFA;
+@materialDesign-grey100: #F5F5F5;
+@materialDesign-grey200: #EEEEEE;
+@materialDesign-grey300: #E0E0E0;
+@materialDesign-grey400: #BDBDBD;
+@materialDesign-grey500: #9E9E9E;
+@materialDesign-grey600: #757575;
+@materialDesign-grey700: #616161;
+@materialDesign-grey800: #424242;
+@materialDesign-grey900: #212121;
+
+// Blue Grey
+@materialDesign-blueGrey50: #ECEFF1;
+@materialDesign-blueGrey100: #CFD8DC;
+@materialDesign-blueGrey200: #B0BEC5;
+@materialDesign-blueGrey300: #90A4AE;
+@materialDesign-blueGrey400: #78909C;
+@materialDesign-blueGrey500: #607D8B;
+@materialDesign-blueGrey600: #546E7A;
+@materialDesign-blueGrey700: #455A64;
+@materialDesign-blueGrey800: #37474F;
+@materialDesign-blueGrey900: #263238;

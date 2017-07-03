@@ -1,0 +1,66 @@
+
+.circleButton(@size: 40px, @color, @adjustment: 0px ) {
+   @colorBorder: @color;
+   @colorActive: @color;
+   @colorHover: lighten(@color, 30%);
+   @colorNormal: lighten(@color, 40%);
+
+   width: @size;
+   height: @size;
+   border-radius: @size;
+   background: @colorNormal;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   border: 1px solid @colorBorder;
+   outline: none;
+   .elevation-8();
+
+   i {
+      padding-top:@adjustment;
+      // padding-left:@adjustment;
+      font-size: @size * 0.5;
+      display: inline-block;
+      vertical-align: middle;
+      width: @size;
+   }
+
+   &:hover {
+     background: @colorHover;
+   }
+   &:active {
+     background: @colorActive;
+   }
+}
+
+
+// <button className="addTodo" onClick={()=>{dispatch_addTodo(inputValue)}}>
+//   <i className="fa fa-plus" aria-hidden="true"></i>
+// </button>
+// <button className="x" onClick={()=>{dispatch_addTodo(inputValue)}}><i className="fa fa-times" aria-hidden="true"></i></button>
+// <button className="done" onClick={()=>{dispatch_addTodo(inputValue)}}><i className="fa fa-check" aria-hidden="true"></i></button>
+//
+//  @buttonSize: 30px;
+//   .addTodo {
+//       color:hsl(0, 0%, 40%);
+//      position: absolute;
+//      bottom: @buttonSize / -2;
+//      right: @buttonSize / 2;
+//      .circleButton( @buttonSize, hsl(122, 77%, 49%));
+//   }
+//   .x {
+//       color:hsl(0, 0%, 40%);
+//      position: absolute;
+//      bottom: @buttonSize / -2;
+//      right: 50px;
+//      .circleButton( @buttonSize, red);
+//   }
+//   .done {
+//       color:hsl(0, 0%, 40%);
+//      position: absolute;
+//      bottom: @buttonSize / -2;
+//      right: 100px;
+//      .circleButton( @buttonSize, blue, 1px);
+//   }
