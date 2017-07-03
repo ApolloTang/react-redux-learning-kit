@@ -1,0 +1,78 @@
+@import "~common/styles-init/index";
+
+:local(.module-style) {
+
+    .tiles {
+      padding: 20px;
+    }
+
+    .tile {
+      .elevation-2();
+      background-color: hsl(0,0%,100%);
+      cursor: pointer;
+
+      &:hover {
+        .elevation-4();
+      }
+    }
+
+    @gutter: 20px;
+
+    @media @layout_smartphone {
+      .tile {
+        .mixin-tiles(12, 12, 10px, .25);
+      }
+      .tileContent {
+        .mixin-tileContent();
+      }
+    }
+
+    @media @layout_tablet {
+      .tile {
+        .mixin-tiles(4, 12, @gutter, .5);
+      }
+      .tileContent {
+        .mixin-tileContent();
+        .text__size_relative (1);
+      }
+    }
+
+    @media @layout_pc {
+      .tile {
+        .mixin-tiles(3, 12, @gutter, 1);
+      }
+      .tileContent {
+        .mixin-tileContent();
+        .text__size_relative (2);
+      }
+    }
+
+    .tileContent {
+      height: 100%;
+      padding: 5px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      &.is-completed {
+        text-decoration: line-through;
+      }
+
+      .todo-item-delete {
+        display:none;
+      }
+      &:hover {
+        .todo-item-delete{
+          display: block;
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          color:hsl(0, 0%, 40%);
+          @buttonSize: 30px;
+          .circleButton( @buttonSize, red, 0px);
+          cursor: pointer;
+        }
+      }
+    }
+}

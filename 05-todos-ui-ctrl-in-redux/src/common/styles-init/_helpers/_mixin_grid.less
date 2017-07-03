@@ -1,0 +1,38 @@
+.mixin-row() {
+  .mixin-clearfix();
+}
+
+.mixin-column(@columns, @totalColumns: 12, @gutterWidth: 20px) {
+  @totalGutters: @totalColumns - 1;
+  @totalGutterWidth: @totalGutters * @gutterWidth;
+
+  @consumedGutters: @columns - 1;
+  @consumedGutterWidth: @consumedGutters * @gutterWidth;
+
+  @multiplier: @columns / @totalColumns;
+
+  @columnWidth: ~"calc((100% - @{totalGutterWidth}) * @{multiplier} + @{consumedGutterWidth})";
+
+  width: @columnWidth;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: @gutterWidth;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.mixin-column--flex-basis(@columns, @totalColumns: 12, @gutterWidth: 20px) {
+  @totalGutters: @totalColumns - 1;
+  @totalGutterWidth: @totalGutters * @gutterWidth;
+
+  @consumedGutters: @columns - 1;
+  @consumedGutterWidth: @consumedGutters * @gutterWidth;
+
+  @multiplier: @columns / @totalColumns;
+
+  @columnWidth: ~"calc((100% - @{totalGutterWidth}) * @{multiplier} + @{consumedGutterWidth})";
+
+  flex-basis: @columnWidth;
+}
