@@ -29,7 +29,7 @@ class AddTodo extends React.Component {
           className="todoTextInput"
           placeholder="What needs to be done?"
           value={this.state.inputText}
-          onChange={ this.handle_inputChanged}
+          onChange={ this.handle_inputChanged }
         />
         <button
           className="addTodo"
