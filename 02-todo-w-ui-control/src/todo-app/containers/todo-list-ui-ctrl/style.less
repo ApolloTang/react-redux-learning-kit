@@ -4,7 +4,8 @@
   .mixin-clearfix();
 
   @media @layout_smartphone {
-    padding: 0 1rem;
+    padding: 0 1.1rem;
+    padding-top: .5rem;
   }
   @media @layout_tablet {
     padding: 0 1.5rem;
@@ -16,10 +17,19 @@
   }
 
   .filterButton, .label {
-    padding: 5px;
+
+    @media @layout_smartphone {
+      .text__size_relative(-1)
+    }
+
+    padding: 0px;
+    padding-right: 5px;
     float: left;
+
     &.isActive {
-      text-decoration: underline;
+      span, a {
+        text-decoration: underline;
+      }
     }
 
     span, a {
