@@ -16,7 +16,16 @@ class AddTodo extends React.Component {
   }
 
   handle_buttonClicked = (e) => {
-    if (this.state.inputText !=='' ) {
+    if (!/^\s*$/.test(this.state.inputText)) {
+      this.props.dispatch_addTodo(this.state.inputText);
+      this.setState({inputText:''});
+    }
+  }
+
+  handle_keyUp = (e) => {
+    const RETURN = 13;
+    const keyCode = e.keyCode
+    if (keyCode === RETURN && !/^\s*$/.test(this.state.inputText)) {
       this.props.dispatch_addTodo(this.state.inputText);
       this.setState({inputText:''});
     }
@@ -30,6 +39,7 @@ class AddTodo extends React.Component {
           placeholder="What needs to be done?"
           value={this.state.inputText}
           onChange={ this.handle_inputChanged }
+          onKeyUp={ this.handle_keyUp }
         />
         <button
           className="addTodo"
