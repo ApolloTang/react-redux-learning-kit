@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 import TodoList from './containers/todo-list';
 import AddTodo from './containers/add-todo';
-import Control from './containers/todo-list-ui-ctrl';
+import Control from './presentation/todo-list-ui-ctrl';
 
 
 import style from './style';
