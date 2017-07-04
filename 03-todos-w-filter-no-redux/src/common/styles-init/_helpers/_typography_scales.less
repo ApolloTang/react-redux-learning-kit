@@ -1,0 +1,30 @@
+// Material Design typographic scale from:
+// https://material.google.com/style/typography.html#typography-styles
+
+.text__size_absolute (@size: 0) {
+  @scale: 0.923rem,
+          1.000rem,
+          1.154rem,
+          1.538rem,
+          1.846rem,
+          2.615rem,
+          3.462rem,
+          4.308rem,
+          8.615rem;
+  font-size: extract(@scale, @size + 2);
+}
+
+.text__size_relative (@size: 0) {
+  @scale: 0.923rem,
+          1.000rem,
+          1.154rem,
+          1.538rem,
+          1.846rem,
+          2.615rem,
+          3.462rem,
+          4.308rem,
+          8.615rem;
+  font-size: extract(@scale, @size + 2);
+}
+
+

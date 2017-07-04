@@ -1,0 +1,1363 @@
+/* +++++++++++++++++++++++++++++++++ file[start] src/vendor/oban.less */
+
+//
+// oban - a set of less mixins that give you a starting point when starting a new project
+// v0.21.2
+// https://github.com/firstandthird/oban
+// copyright First+Third 2015
+// MIT License
+//
+.oban-arrow-base() {
+  position: relative;
+
+  &:after, &:before {
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    bottom: 100%;
+    border: solid transparent;
+  }
+}
+
+.oban-arrow-top(@color, @size: 10px, @border: transparent, @border-width: 0px, @location: 50%) {
+  .oban-arrow-base();
+
+  &:after {
+    left: @location;
+    border-bottom-color: @color;
+    border-width: @size;
+    margin-left: -@size;
+  }
+
+  &:before {
+    left: @location;
+    border-bottom-color: @border;
+    border-width: @size + @border-width;
+    margin-left: -@size - @border-width;
+  }
+}
+
+.oban-arrow-right(@color, @size: 10px, @border: transparent, @border-width: 0px, @location: 50%) {
+  .oban-arrow-base();
+
+  &:after {
+    left: 100%;
+    top: @location;
+    border-left-color: @color;
+    border-width: @size;
+    margin-top: -@size;
+  }
+
+  &:before {
+    left: 100%;
+    top: @location;
+    border-left-color: @border;
+    border-width: @size + @border-width;
+    margin-top: -@size - @border-width;
+  }
+}
+
+.oban-arrow-left(@color, @size: 10px, @border: transparent, @border-width: 0px, @location: 50%) {
+  .oban-arrow-base();
+
+  &:after {
+    right: 100%;
+    top: @location;
+    border-right-color: @color;
+    border-width: @size;
+    margin-top: -@size;
+  }
+
+  &:before {
+    right: 100%;
+    top: @location;
+    border-right-color: @border;
+    border-width: @size + @border-width;
+    margin-top: -@size - @border-width;
+  }
+}
+
+.oban-arrow-bottom(@color, @size: 10px, @border: transparent, @border-width: 0px, @location: 50%) {
+  .oban-arrow-base();
+
+  &:after {
+    top: 100%;
+    left: @location;
+    border-top-color: @color;
+    border-width: @size;
+    margin-left: -@size;
+  }
+
+  &:before {
+    top: 100%;
+    left: @location;
+    border-top-color: @border;
+    border-width: @size + @border-width;
+    margin-left: -@size - @border-width;
+  }
+}
+
+.oban-bar(@bg: #333, @fg: #fff, @height: 50px, @fontSize: 20px, @degree: 10) {
+
+  .oban-gradient(lighten(@bg, @degree), darken(@bg, @degree));
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  height: @height;
+
+  .title {
+    color: @fg;
+    font-size: @fontSize;
+    line-height: @height;
+    padding: 0 20px;
+  }
+
+}
+
+.oban-base(
+  @bodyColor: #333;
+) {
+
+  .oban-reset();
+  body {
+    color: @bodyColor;
+  }
+  .oban-typography(
+    @bodySize: 16px,
+    @lineHeight: 24px
+  );
+  .oban-responsive();
+
+  .grid12 {
+    .oban-grid-fluid();
+  }
+
+  //Utilities
+  * {
+    .oban-border-box();
+  }
+
+  .clearfix {
+    .oban-clearfix();
+  }
+
+  .pull-left {
+    .oban-pull-left();
+  }
+
+  .pull-right {
+    .oban-pull-right();
+  }
+
+  .hide {
+    .oban-hide();
+  }
+
+  .list-inline {
+    .oban-list-inline();
+  }
+
+  .list-unstyled {
+    .oban-list-unstyled();
+  }
+
+  .spacing-small {
+    .oban-spacing-small();
+  }
+
+  .spacing-medium {
+    .oban-spacing-medium();
+  }
+
+  .spacing-large {
+    .oban-spacing-large();
+  }
+
+  .spacing-xlarge {
+    .oban-spacing-xlarge();
+  }
+
+}
+
+
+.oban-button-reset() {
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  background: transparent;
+  outline: 0;
+  padding: 0;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.oban-button-normalize() {
+  .oban-button-reset();
+  font-size: 14px;
+  line-height: 20px;
+  padding: 4px 12px;
+  text-align: center;
+}
+
+.oban-button-flat(@bgColor: #34AADC, @textColor: contrast(@bgColor), @hoverBgColor: darken(@bgColor, 20), @hoverTextColor: contrast(@hoverBgColor)) {
+
+  .oban-button-normalize();
+
+  background-color: @bgColor;
+  color: @textColor;
+  border: 1px solid @bgColor;
+  border-radius: 5px;
+
+  &.hover,
+  &:hover {
+    color: @hoverTextColor;
+    background-color: @hoverBgColor;
+    border: 1px solid @hoverBgColor;
+  }
+
+  &.active,
+  &:active {
+    background-color: @hoverBgColor;
+    border: 1px solid @hoverBgColor;
+    outline: 0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  }
+
+}
+
+.oban-button-gradient(@bgColor: #fff, @textColor: contrast(@bgColor), @hoverBgColor: darken(@bgColor, 20), @hoverTextColor: contrast(@hoverBgColor)) {
+
+  .oban-button-normalize();
+
+  color: @textColor;
+
+  .oban-gradient(@bgColor, darken(@bgColor, 20));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  border: 1px solid darken(@bgColor, 20);
+  border-radius: 5px;
+
+  &.hover,
+  &:hover {
+    background: darken(@bgColor, 10);
+  }
+
+  &.active,
+  &:active {
+    background-image: none;
+    outline: 0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  }
+}
+
+.oban-clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@oban-warning-bg: #f9fad2;
+@oban-warning: darken(@oban-warning-bg, 60);
+@oban-error-bg: #f2dede;
+@oban-error: darken(@oban-error-bg, 60);
+@oban-success-bg: #dff0d8;
+@oban-success: darken(@oban-success-bg, 60);
+
+.oban-defaults() {
+  * {
+    .oban-border-box();
+  }
+
+  .clearfix {
+    .oban-clearfix();
+  }
+
+  .pull-left {
+    .oban-pull-left();
+  }
+
+  .pull-right {
+    .oban-pull-right();
+  }
+
+  .hide {
+    .oban-hide();
+  }
+
+  .list-inline {
+    .oban-list-inline();
+  }
+
+  .list-unstyled {
+    .oban-list-unstyled();
+  }
+
+  .spacing-small {
+    .oban-spacing-small();
+  }
+
+  .spacing-medium {
+    .oban-spacing-medium();
+  }
+
+  .spacing-large {
+    .oban-spacing-large();
+  }
+
+  .spacing-xlarge {
+    .oban-spacing-xlarge();
+  }
+}
+
+.oban-form(
+  @color: #333;
+  @copyColor: lighten(@color, 30);
+  @requiredColor: #cf5f5f;
+
+  @headerSize: 1.5em;
+  @labelSize: .95em;
+  @copySize: .80em;
+  @mainCopySize: .9em;
+  @inputFontSize: 1em;
+
+  @labelFontWeight: bold;
+
+  @inputWidth: 80%;
+  @inputBorder: lighten(#000, 60);
+  @inputBg: #fcfcfc;
+  @inputBorderRadius: 3px;
+
+  @spacingHeadline: 15px;
+  @spacingSections: 25px;
+  @spacingFields: 10px;
+  @spacingLabels: 3px;
+) {
+
+  color: @color;
+
+  //headline
+  fieldset > p {
+    font-size: @headerSize;
+    margin: 0 0 @spacingHeadline 0;
+  }
+
+  //note under headline
+  div + p,
+  p + p {
+    font-size: @mainCopySize;
+    margin: 0;
+  }
+
+  div > p,
+  p + p {
+    color: @copyColor;
+  }
+
+  //section
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    //sections on top of eachother
+    & + fieldset {
+      margin-top: @spacingSections;
+    }
+  }
+
+  //field group
+  fieldset > div {
+    margin: @spacingFields 0;
+
+    //field label
+    label {
+      margin: 0 0 @spacingLabels 0;
+    }
+
+    //field note
+    & > p {
+      font-size: @copySize;
+      margin-top: @spacingLabels;
+    }
+  }
+
+  //nested headline
+  div + p,
+  label {
+    display: block;
+    font-size: @labelSize;
+    font-weight: @labelFontWeight;
+    margin: 0;
+  }
+
+  label {
+    span {
+      color: @requiredColor;
+    }
+  }
+
+  div + p + div {
+    margin-top: @spacingLabels;
+  }
+
+  input[type=checkbox] + label,
+  input[type=radio] + label {
+    display: inline;
+    font-weight: normal;
+  }
+
+  fieldset > div {
+    & > input[type=text],
+    & > input[type=password],
+    & > input[type=email],
+    & > input[type=url],
+    & > textarea {
+      font-size: @inputFontSize;
+      border: 1px solid @inputBorder;
+      border-radius: @inputBorderRadius;
+      background: @inputBg;
+      padding: 5px;
+      margin: 0;
+    }
+
+    & > input[type=text],
+    & > input[type=password],
+    & > input[type=email],
+    & > input[type=url],
+    & > textarea,
+    & > select {
+      width: @inputWidth;
+      display: block;
+    }
+  }
+
+
+}
+
+.oban-google-font(@font-family, @rest...) {
+  @google-font: replace(@font-family, " ", "+");
+  @font-weights: ~`(function() { return @{rest}.join(','); })()`;
+  @import "//fonts.googleapis.com/css?family=@{google-font}:@{font-weights}";
+}
+
+.oban-gradient(@startColor: #555, @endColor: #333) {
+  background-color: mix(@startColor, @endColor, 60%);
+  background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
+  background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
+  background-repeat: repeat-x;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down
+}
+
+
+.oban-gradient-three-color(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 50%, @endColor: #c3325f) {
+  background-color: mix(@midColor, @endColor, 80%);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
+  background-image: -webkit-linear-gradient(@startColor, @midColor @colorStop, @endColor);
+  background-image: -moz-linear-gradient(top, @startColor, @midColor @colorStop, @endColor);
+  background-image: -o-linear-gradient(@startColor, @midColor @colorStop, @endColor);
+  background-image: linear-gradient(@startColor, @midColor @colorStop, @endColor);
+  background-repeat: no-repeat;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down, gets no color-stop at all for proper fallback
+}
+
+.oban-grid-border(@border-color, @gutterSize: 20px) {
+  [class*=column] {
+    position: relative;
+  }
+  [class*=column]:before {
+    position: absolute;
+    left: ( @gutterSize - 1 ) / 2;
+    width: 1px;
+    height: 100%;
+    background-color: @border-color;
+    content: '';
+  }
+  [class*=column]:first-child:before {
+    height: 0;
+  }
+}
+
+
+
+.oban-grid-fluid(@columnCount: 12, @gutterSize: 20px, @columnPrefix: column, @offsetPrefix: offset) {
+
+  .oban-border-box();
+  .oban-clearfix();
+  margin-left: -@gutterSize;
+
+  [class*=column] {
+    float: left;
+    .oban-border-box();
+    padding: 0 0 0 @gutterSize;
+
+  }
+
+  .columnLoop (@index) when (@index > 0) {
+    .@{columnPrefix}@{index} {
+      width: @index/@columnCount * 100%;
+    }
+    .@{offsetPrefix}@{index} {
+      margin-left: @index/@columnCount * 100%;
+    }
+    .columnLoop(@index - 1);
+
+  }
+  .columnLoop (0) {}
+
+  .columnLoop(@columnCount);
+
+  &.grid-pad {
+    padding: @gutterSize;
+  }
+
+}
+
+.oban-grid-fixed(@columnSize: 100px, @gutterSize: 20px, @className: column-fixed) {
+
+  @size: @columnSize + @gutterSize;
+  padding-left: @size;
+
+  .@{className} {
+    margin-left: -@size;
+    width: @size;
+  }
+}
+
+.oban-grid-fixed-left(@columnSize, @gutterSize: 20px, @className: column-fixed) {
+  .oban-grid-fixed(@columnSize, @gutterSize, @className);
+}
+
+.oban-grid-fixed-right(@columnSize: 100px, @gutterSize: 20px, @className: column-fixed) {
+
+  @size: @columnSize + @gutterSize;
+  padding-right: @size;
+
+  .@{className} {
+    margin-right: -@size;
+    width: @size;
+  }
+
+}
+
+.oban-grid-debug(@color: red) {
+
+  [class*=column] {
+    outline: 1px solid @color;
+  }
+}
+
+
+.oban-border-box() {
+  .oban-box-sizing(border-box);
+}
+
+.oban-pull-left() {
+  float: left;
+}
+
+.oban-pull-right() {
+  float: right;
+}
+
+.oban-hide() {
+  display: none;
+}
+
+.oban-size(@px) {
+  width: @px;
+  height: @px;
+}
+
+.oban-size(@width, @height) {
+  width: @width;
+  height: @height;
+}
+
+.oban-vcenter(@height) {
+  height: @height;
+  line-height: @height;
+}
+
+.oban-image-fit() {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+}
+
+.oban-list-unstyled() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oban-list-inline() {
+  .oban-list-unstyled();
+  .oban-clearfix();
+  li {
+    float: left;
+  }
+}
+
+.oban-message(@color) {
+  background: @color;
+  border: 1px solid darken(@color, 10);
+  color: darken(@color, 60);
+  padding: 5px 10px;
+}
+
+.oban-messages() {
+
+  .message-error {
+    .oban-message(#F2DEDE);
+  }
+
+  .message-warning {
+    .oban-message(#FCF8E3);
+  }
+
+  .message-success {
+    .oban-message(#DFF0D8);
+  }
+
+  .message-info {
+    .oban-message(#f0f0f0);
+  }
+
+}
+
+
+.oban-modal(@width: 900px) {
+  .oban-border-box();
+  position: fixed;
+  padding: 20px;
+  top: 0;
+  left: 50%;
+  z-index: 999;
+  overflow: auto;
+  width: @width;
+  margin: 0 0 0 -(@width/2);
+  background-color: #ffffff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+
+  border-radius: 6px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  background-clip: padding-box;
+
+  .oban-transition(top);
+
+  button.close {
+    .oban-button-reset();
+    .oban-pull-right();
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    &:hover {
+      border: 1px solid darken(#e5e5e5, 20);
+    }
+  }
+
+  @media (min-height: 840px) {
+    top: 100px;
+  }
+
+  @media (min-height: 585px) and (max-height: 840px) {
+    top: 60px;
+  }
+}
+
+.oban-modal-backdrop() {
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+  background-color: #000000;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+
+.oban-normalize() {
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/*
+ * Corrects `block` display not defined in IE 8/9.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/*
+ * Corrects `inline-block` display not defined in IE 8/9.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE 8/9.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Sets default font family to sans-serif.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    font-family: sans-serif; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+/*
+ * Removes default margin.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/*
+ * Addresses `h1` font sizes within `section` and `article` in Firefox 4+,
+ * Safari 5, and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+}
+
+/*
+ * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+/*
+ * Addresses styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE 8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+
+/*
+ * Corrects font family set oddly in Safari 5 and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/*
+ * Sets consistent quote types.
+ */
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/*
+ * Addresses inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * Removes border when inside `a` element in IE 8/9.
+ */
+
+img {
+    border: 0;
+}
+
+/*
+ * Corrects overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/*
+ * Addresses margin not present in IE 8/9 and Safari 5.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/*
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/*
+ * 1. Corrects font family not being inherited in all browsers.
+ * 2. Corrects font size not being inherited in all browsers.
+ * 3. Addresses margins set differently in Firefox 4+, Safari 5, and Chrome
+ */
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+}
+
+/*
+ * Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to `content-box` in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE 8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/*
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+}
+
+// Based on nib reset.styl (https://github.com/visionmedia/nib/blob/master/lib/nib/reset.styl)
+// Based on [Eric Meyer's reset](http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/)
+
+.oban-reset() {
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td {
+    .oban-reset-box-model();
+    .oban-reset-font();
+  }
+  body {
+    .oban-reset-body();
+  }
+  ol, ul {
+    list-style: none;
+  }
+  table {
+    .oban-reset-table();
+  }
+  caption, th, td {
+    .oban-reset-table-cell();
+  }
+  a img {
+    border: none;
+  }
+}
+
+.oban-nested-reset() {
+  div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+  pre, a, abbr, acronym, address, code, del, dfn, em, img,
+  dl, dt, dd, ol, ul, li, fieldset, form, label,
+  legend, caption, tbody, tfoot, thead, tr {
+    .oban-reset-box-model();
+    .oban-reset-font();
+  }
+  table {
+    .oban-reset-table();
+  }
+  caption, th, td {
+    .oban-reset-table-cell();
+  }
+  a img {
+    border: none;
+  }
+}
+
+.oban-reset-box-model() {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.oban-reset-font() {
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+.oban-reset-body() {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+.oban-reset-table() {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+.oban-reset-table-cell() {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+.oban-reset-html5() {
+  article, aside, canvas, details, figcaption,
+  figure, footer, header, hgroup, menu, nav,
+  section, summary {
+    .oban-reset-box-model();
+    display: block;
+  }
+  audio, canvas, video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+  }
+  audio:not([controls]),[hidden] {
+    display: none;
+  }
+}
+
+@oban-screen-tiny-max: 768px;
+@oban-screen-small-min: (@oban-screen-tiny-max+1);
+@oban-screen-small-max: 991px;
+@oban-screen-medium-min: (@oban-screen-small-max+1);
+@oban-screen-medium-max: 1199px;
+@oban-screen-large-min: (@oban-screen-medium-max+1);
+
+
+.oban-responsive() {
+
+  .show-tiny,
+  .show-small,
+  .show-medium,
+  .show-large {
+    display: none !important;
+  }
+
+  //Phones
+  @media (max-width: @oban-screen-tiny-max) {
+    .show-tiny {
+      display: block !important;
+    }
+    .hide-tiny {
+      display: none !important;
+    }
+
+    .grid-stacked-tiny [class*=column] {
+      width: 100%;
+    }
+  }
+
+  //Tablets
+  @media (min-width: @oban-screen-small-min) and (max-width: @oban-screen-small-max) {
+    .show-small {
+      display: block !important;
+    }
+
+    .hide-small {
+      display: none !important;
+    }
+
+    .grid-stacked-small [class*=column] {
+      width: 100%;
+    }
+
+  }
+
+  //Medium Desktop
+  @media (min-width: @oban-screen-medium-min) and (max-width: @oban-screen-medium-max) {
+    .show-medium {
+      display: block !important;
+    }
+
+    .hide-medium {
+      display: none !important;
+    }
+
+    .grid-stacked-medium [class*=column] {
+      width: 100%;
+    }
+
+  }
+
+  //Large Desktop
+  @media (min-width: @oban-screen-large-min) {
+    .show-large {
+      display: block !important;
+    }
+
+    .hide-large {
+      display: none !important;
+    }
+
+  }
+
+}
+
+.oban-respond-to(@type, @rules) {
+  & when(@type = large) {
+    @media only screen and (min-width: @oban-screen-large-min) { @rules(); }
+  }
+  & when(@type = medium) {
+    @media only screen and (min-width: @oban-screen-medium-min) and (max-width: @oban-screen-medium-max) { @rules(); }
+  }
+  & when(@type = small) {
+    @media only screen and (min-width: @oban-screen-small-min) and (max-width: @oban-screen-small-max) { @rules(); }
+  }
+  & when(@type = tiny) {
+    @media only screen and (max-width: @oban-screen-tiny-max) { @rules(); }
+  }
+}
+
+@oban-spacing-small: 10px;
+@oban-spacing-medium: 20px;
+@oban-spacing-large: 40px;
+@oban-spacing-xlarge: 60px;
+
+.oban-spacing-small() {
+  margin-bottom: @oban-spacing-small;
+}
+
+.oban-spacing-medium() {
+  margin-bottom: @oban-spacing-medium;
+}
+
+.oban-spacing-large() {
+  margin-bottom: @oban-spacing-large;
+}
+
+.oban-spacing-xlarge() {
+  margin-bottom: @oban-spacing-xlarge;
+}
+
+.oban-tabs(@bg: #f5f5f5, @borderColor: #e5e5e5, @activeBg: #fff, @borderRadius: 5px) {
+  .oban-list-inline();
+  border-bottom: 1px solid @borderColor;
+
+  li {
+    background: @bg;
+    margin: 0 10px;
+    margin-bottom: -1px;
+    padding: 8px 12px;
+    border: 1px solid @borderColor;
+    border-radius: @borderRadius @borderRadius 0 0;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .active {
+    border-bottom: 1px solid @activeBg;
+    background: @activeBg;
+
+  }
+
+}
+
+.oban-typography(@family: ~"'Helvetica Neue', Helvetica, Arial, sans-serif", @bodySize: 14px, @lineHeight: 20px) {
+  .font-size(@factor: 1) {
+    font-size: @bodySize * @factor;
+  }
+
+  .lines(@count: 1) {
+    line-height: (@lineHeight * @count);
+  }
+  h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    text-rendering: optimizelegibility;
+  }
+
+  h1 {
+    .font-size(2.75);
+    .lines(2.5);
+  }
+  h2 {
+    .font-size(2.25);
+    .lines(2);
+  }
+  h3 {
+    .font-size(1.75);
+    .lines(2);
+  }
+  h4 {
+    .font-size(1.25);
+  }
+  h5 {
+    .font-size(1);
+  }
+  h6 {
+    .font-size(.85);
+  }
+  p {
+    margin: 0;
+    .lines(1);
+  }
+
+  body {
+    font-size: (@bodySize);
+    font-family: @family;
+    line-height: (@lineHeight);
+  }
+}
+
+
+.oban-box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
+}
+
+.oban-transition(@prop: all, @duration:0.2s, @ease:ease-out) {
+  -webkit-transition: @prop @duration @ease;
+  transition: @prop @duration @ease;
+}
+
+
+
+/* +++++++++++++++++++++++++++++++++ file[end]   src/vendor/oban.less */

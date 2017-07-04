@@ -2,8 +2,9 @@ import _ from 'lodash';
 import React from 'react';
 
 import AddTodo from './add-todo/';
-import TodoList from './todo-list/';
-import Control from './todo-list-ui-ctrl/';
+
+import TodoListView from 'todo-app/todos-view/';
+import mockData from './mock-data';
 
 import style from './style';
 class TodoApp extends React.Component {
@@ -13,18 +14,15 @@ class TodoApp extends React.Component {
     this.handle_createTodo = this.handle_createTodo.bind(this);
     this.handle_toggleTodo = this.handle_toggleTodo.bind(this);
     this.handle_deleteTodo = this.handle_deleteTodo.bind(this);
-    this.handle_deleteTodo = this.handle_deleteTodo.bind(this);
-    this.handle_selectFilter = this.handle_selectFilter.bind(this);
 
     this.state = {
-      todoList: [],
-      todoListFilter: 'all'
+      todoList: []
     };
   }
 
   handle_createTodo( todoText ) {
     const todoList_prev = this.state.todoList;
-    const todoList_next = todoList_prev;
+    const todoList_next = _.cloneDeep(todoList_prev);
 
     const todoItem_next = { id: _.uniqueId(), text: todoText, complete: false };
 
@@ -68,12 +66,6 @@ class TodoApp extends React.Component {
     });
   }
 
-  handle_selectFilter(filterType) {
-    this.setState({
-      todoListFilter: filterType
-    });
-  }
-
   render() {
     return (
       <div className={`todoApp ${style['module-style']}`}>
@@ -82,17 +74,11 @@ class TodoApp extends React.Component {
             <AddTodo
               createTodo={this.handle_createTodo} />
           </div>
-          <div className="ui-ctr-container">
-            <Control
-              filterType={this.state.todoListFilter}
-              selectFilter={this.handle_selectFilter} />
-          </div>
           <div className="todos-list-container">
-            <TodoList
-              todoListFilter={this.state.todoListFilter}
-              todoList={this.state.todoList}
-              toggleTodo={this.handle_toggleTodo}
-              deleteTodo={this.handle_deleteTodo} />
+            <TodoListView
+              todos={this.state.todoList}
+              handleComplete={this.handle_toggleTodo}
+              handleRemove={this.handle_deleteTodo} />
           </div>
         </div>
       </div>
