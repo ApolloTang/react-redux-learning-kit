@@ -1,13 +1,8 @@
 # react-redux-todo-app-demo
 
-Tools
+A few todos app examples to get you started quickly learning React/Redux  
 
-React Developer Tools
-```
-https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
-```
+### Tools
+[React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+[Redux DevTools Extension](http://extension.remotedev.io/)
 
-Redux DevTools Extension
-```
-http://extension.remotedev.io/
-```
