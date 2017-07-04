@@ -3,6 +3,7 @@
 Each folder is a lesson. If you are on OSX, create a node_modules/ directory at the top level folder:
 
 ```sh
+cd 01-react-fundamental
 mkdir node_modules
 ```
 
@@ -13,7 +14,7 @@ cd <lesson-dir>
 yarn
 ```
 
-You only have to do 'yarn' once because node_modules/ in each lesson is symbolically linked to the node_modules/ folder in its parent directory recussively.
+You only have to do 'yarn' once because node_modules/ in each lesson is symbolically linked to the node_modules/ folder in its parent directory.
 
 To play with a lesson, in each lesson folder spin up webpack dev server:
 
