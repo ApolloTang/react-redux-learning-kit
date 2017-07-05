@@ -10,7 +10,7 @@ const TodoList = (props) => (
         props.todos.map((todo, i)=>{
           return (
             <TodoItem
-              key={i}
+              key={todo.id}
               id={todo.id}
               text={todo.text}
               complete={todo.complete}
