@@ -25,9 +25,9 @@ class TodoApp extends React.Component {
     const todoList_prev = this.state.todoList;
     const todoList_next = _.cloneDeep(todoList_prev);
 
-    const todoItem_next = { id: _.uniqueId(), text: todoText, complete: false };
+    const todoItem_new = { id: _.uniqueId(), text: todoText, complete: false };
 
-    todoList_next.push(todoItem_next);
+    todoList_next.push(todoItem_new);
 
     this.setState({
       todoList: todoList_next
