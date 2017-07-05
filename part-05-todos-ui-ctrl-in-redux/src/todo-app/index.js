@@ -11,13 +11,13 @@ const TodoApp = (props) => {
   return (
     <div className={`todoApp ${style['module-style']}`}>
       <div className="layout">
-        <div className="add-todo-container">
+        <div className="add-todo-workspace">
           <AddTodo/>
         </div>
-        <div className="ui-ctr-container">
+        <div className="ui-ctr-workspace">
           <Control/>
         </div>
-        <div className="todos-list-container">
+        <div className="todos-list-workspace">
           <TodoList/>
         </div>
       </div>

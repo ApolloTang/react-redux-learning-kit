@@ -70,11 +70,11 @@ class TodoApp extends React.Component {
     return (
       <div className={`todoApp ${style['module-style']}`}>
         <div className="layout">
-          <div className="add-todo-container">
+          <div className="add-todo-workspace">
             <AddTodo
               createTodo={this.handle_createTodo} />
           </div>
-          <div className="todos-list-container">
+          <div className="todos-list-workspace">
             <TodoListView
               todos={this.state.todoList}
               handleComplete={this.handle_toggleTodo}

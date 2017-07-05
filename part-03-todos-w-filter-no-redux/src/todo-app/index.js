@@ -77,16 +77,16 @@ class TodoApp extends React.Component {
     return (
       <div className={`todoApp ${style['module-style']}`}>
         <div className="layout">
-          <div className="add-todo-container">
+          <div className="add-todo-workspace">
             <AddTodo
               createTodo={this.handle_createTodo} />
           </div>
-          <div className="ui-ctr-container">
+          <div className="ui-ctr-workspace">
             <Control
               filterType={this.state.todoListFilter}
               selectFilter={this.handle_selectFilter} />
           </div>
-          <div className="todos-list-container">
+          <div className="todos-list-workspace">
             <TodoListFiltered
               todoListFilter={this.state.todoListFilter}
               todoList={this.state.todoList}
