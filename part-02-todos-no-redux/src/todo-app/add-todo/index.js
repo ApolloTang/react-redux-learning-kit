@@ -50,7 +50,6 @@ class AddTodo extends React.Component {
       </div>
     );
   };
-
 }
 AddTodo.proptypes = {
     createTodo: PropTypes.func
