@@ -1,0 +1,97 @@
+
+.getTileDimension(@columns, @totalColumns:12, @gutterWidth: 20px,  @aspectRatio:1) {
+  @totalGutters: @totalColumns - 1;
+  @totalGutterWidth: @totalGutters * @gutterWidth;
+
+  @consumedGutters: @columns - 1;
+  @consumedGutterWidth: @consumedGutters * @gutterWidth;
+
+  @multiplier: @columns / @totalColumns;
+
+  @columnWidth: ~"calc((100% - @{totalGutterWidth}) * @{multiplier} + @{consumedGutterWidth})";
+  @paddingTop: ~"calc( ((100% - @{totalGutterWidth}) * @{multiplier} + @{consumedGutterWidth}) * @{aspectRatio} )";
+
+  width: @columnWidth;
+  padding-top: @paddingTop;
+  margin-right: @gutterWidth;
+  margin-bottom: @gutterWidth;
+
+  @mod: @totalColumns / @columns;
+
+  // @nth_mod: @mod * 1;
+  // &:nth-child(@{nth_mod}) {
+  //   margin-right: 0px;
+  // }
+  //
+  // @nth_mod: @mod * 2;
+  // &:nth-child(@{nth_mod}) {
+  //   margin-right: 0px;
+  // }
+
+  @iterations: 100;  // only goes up to 100 [!!]
+  .n-loop (@i) when (@i > 0) {
+      @nth_mod: @mod * @i;
+      &:nth-child(@{nth_mod}) {
+        margin-right: 0px;
+      }
+      .n-loop(@i - 1);
+  }
+  .n-loop (@iterations);
+};
+
+
+.mixin-tiles(@columns, @totalColumns:12, @gutterWidth: 20px,  @aspectRatio:1) {
+  .getTileDimension(@columns, @totalColumns, @gutterWidth,  @aspectRatio);
+  // outline: 1px solid blue;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.mixin-tileContent {
+  position: absolute;
+  top:0px;
+  left:0px;
+  bottom:0px;
+  right:0px;
+}
+
+
+//------------------------------------------------------------------
+// Usage
+//------------------------------------------------------------------
+// <div className={`tiles ${style['module-style']}`}>
+//   <div className="tile"><div className="tileContent">1</div></div>
+//   <div className="tile"><div className="tileContent">2</div></div>
+//   <div className="tile"><div className="tileContent">3</div></div>
+//   <div className="tile"><div className="tileContent">4</div></div>
+//   <div className="tile"><div className="tileContent">5</div></div>
+//   <div className="tile"><div className="tileContent">6</div></div>
+//   <div className="tile"><div className="tileContent">7</div></div>
+//   <div className="tile"><div className="tileContent">8</div></div>
+//   <div className="tile"><div className="tileContent">9</div></div>
+//   <div className="tile"><div className="tileContent">10</div></div>
+//   <div className="tile"><div className="tileContent">1</div></div>
+//   <div className="tile"><div className="tileContent">2</div></div>
+//   <div className="tile"><div className="tileContent">3</div></div>
+//   <div className="tile"><div className="tileContent">4</div></div>
+//   <div className="tile"><div className="tileContent">5</div></div>
+//   <div className="tile"><div className="tileContent">6</div></div>
+//   <div className="tile"><div className="tileContent">7</div></div>
+//   <div className="tile"><div className="tileContent">8</div></div>
+//   <div className="tile"><div className="tileContent">9</div></div>
+//   <div className="tile"><div className="tileContent">10</div></div>
+// </div>
+//
+// .tiles {
+//   // no need to declear any mixin
+// }
+//
+// .tile {
+//   .mixin-tiles(4, 12, 10px, 1);
+// }
+//
+// .tileContent {
+//   .mixin-tileContent();
+// }
+
