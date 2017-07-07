@@ -10,19 +10,25 @@ import PropTypes from 'prop-types';
 const Item = (props) => <div>{props.item}</div>;
 Item.propTypes = {
   item: PropTypes.string
-}
+};
 
-const List = (props) => {
-  const list = (Object.prototype.toString.call(props.list) === '[object Array]' ) ? props.list : [];
-  return (
-    <div>
-      { list.map( item => <Item key={item} item={item} />) }
-    </div>
-  );
+
+class List extends React.Component {
+  static propTypes = {     //<------------------ Alternatively, you can declare propTypes as class's static property
+    list: PropTypes.array
+  }
+  render() {
+    const list = (Object.prototype.toString.call(this.props.list) === '[object Array]' ) ? this.props.list : [];
+    return (
+      <div>
+        { list.map( item => <Item key={item} item={item} />) }
+      </div>
+    );
+  }
 }
-List.propTypes = {
-  list: PropTypes.array
-}
+// Item.propTypes = {
+//   item: PropTypes.string
+// };
 
 
 class MyComponent extends React.Component {
