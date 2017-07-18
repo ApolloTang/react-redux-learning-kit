@@ -1,10 +1,13 @@
 {
-  "name": "react-redux-todo-app-demo",
+  "name": "React/Redux learning kit",
   "version": "1.0.0",
   "main": "webpack.config.js",
-  "repository": "git@personal_2:apollotang/setup-pj-for-tutorial.git",
   "author": "Apollo Tang <tang.apollo@gmail.com>",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ApolloTang/react-redux-learning-kit"
+  },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
