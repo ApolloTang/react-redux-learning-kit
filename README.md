@@ -2,7 +2,7 @@
 
 ### React/Redux learning kit
 
-####A set of learning kit to get you started quickly learning React/Redux  
+#### A set of learning kit to get you started quickly learning React/Redux  
 
 ##### Table of Content: 
 
