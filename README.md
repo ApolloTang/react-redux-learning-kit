@@ -26,3 +26,6 @@ Same app as part 4 but, filter setting is read from Redux store
 #### Development tools you will need: 
  * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
  * [Redux DevTools Extension](http://extension.remotedev.io/)
+ 
+ 
+![redux data flow](https://user-images.githubusercontent.com/1150961/28331537-808aae64-6bbf-11e7-9f8b-d25e2c40ae60.png)
