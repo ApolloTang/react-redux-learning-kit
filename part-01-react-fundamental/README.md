@@ -7,7 +7,7 @@ cd <lesson-dir>
 yarn
 ```
 
-Then pin up webpack dev server, where it is served at ```localhost:8888```.
+Then spin up webpack dev server to serve lesson at ```localhost:8888```.
 
 ```sh
 yarn dev -- --open
