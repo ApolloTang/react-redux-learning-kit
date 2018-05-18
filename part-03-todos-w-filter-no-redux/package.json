@@ -1,5 +1,5 @@
 {
-  "name": "React/Redux learning kit",
+  "name": "React-Redux-learning-kit",
   "version": "1.0.0",
   "main": "webpack.config.js",
   "author": "Apollo Tang <tang.apollo@gmail.com>",
