@@ -1,0 +1,68 @@
+@import "~common/styles-init/index";
+
+:local(.module-style) {
+  position: relative;
+  width: 100%;
+  @offset: 5px;
+  padding-bottom: @offset;
+
+  .todo-textInput {
+
+    outline: none;
+    border: none;
+    width: 100%;
+
+    background-color: @global-background-color;
+
+    @media @layout_smartphone {
+      .text__size_relative (@size: 2);
+      padding: 0 0.9rem;
+      padding-top: 0.5rem;
+    }
+    @media @layout_tablet {
+      .text__size_relative (@size: 4);
+      padding: 0 1.5rem;
+      padding-top: 1rem;
+    }
+    @media @layout_pc {
+      .text__size_relative (@size: 4);
+      padding: 0 1.5rem;
+      padding-top: 1rem;
+    }
+
+  }
+
+  .addTodo {
+    display: none;
+  }
+
+  &:hover {
+    .addTodo {
+      display: block;
+      cursor: pointer;
+
+      @media @layout_smartphone {
+        @buttonSize: 30px;
+        bottom: (@buttonSize / -2) + @offset;
+        right: @buttonSize / 2;
+        .circleButton( @buttonSize, hsl(122, 77%, 49%), 4px);
+      }
+      @media @layout_tablet {
+        @buttonSize: 50px;
+        bottom: @buttonSize / -2;
+        right: @buttonSize / 2;
+        .circleButton( @buttonSize, hsl(122, 77%, 49%), 4px);
+      }
+      @media @layout_pc {
+        @buttonSize: 50px;
+        bottom: @buttonSize / -2;
+        right: @buttonSize / 2;
+        .circleButton( @buttonSize, hsl(122, 77%, 49%), 4px);
+
+      }
+
+      color:hsl(0, 0%, 40%);
+      position: absolute;
+    }
+  }
+}

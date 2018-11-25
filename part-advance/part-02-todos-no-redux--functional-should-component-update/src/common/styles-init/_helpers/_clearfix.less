@@ -1,0 +1,15 @@
+// http://nicolasgallagher.com/micro-clearfix-hack/
+.mixin-clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+

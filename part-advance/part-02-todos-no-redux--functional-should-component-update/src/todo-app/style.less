@@ -1,0 +1,46 @@
+
+@import "~common/styles-init/index";
+
+:local(.module-style) {
+
+  height: 100%;
+  .mixin-clearfix();
+
+  @min-layout-height: 70%;
+
+  .layout {
+    .mixin-clearfix();
+    bakground-color: @global-background-color;
+    .shadow_elevation-3();
+    margin: 0px auto;
+    padding: 5px;
+  }
+
+  @media @layout_smartphone {
+    .layout {
+      width: 300px;
+      @margin-top: 100px;
+      margin-top: @margin-top;
+      min-height: @min-layout-height;
+    }
+  }
+
+  @media @layout_tablet {
+    .layout {
+      width: 90%;
+      @margin-top: 5%;
+      margin-top: @margin-top;
+      min-height: @min-layout-height;
+    }
+  }
+
+  @media @layout_pc {
+    .layout {
+      width: 80%;
+      @margin-top: 5%;
+      margin-top: @margin-top;
+      min-height: @min-layout-height;
+    }
+  }
+
+}
