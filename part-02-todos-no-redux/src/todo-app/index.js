@@ -21,48 +21,36 @@ class TodoApp extends React.Component {
   }
 
   handle_createTodo( todoText ) {
-    const todoList_prev = this.state.todoList;
-    const todoList_next = _.cloneDeep(todoList_prev);
-
+    const todoList = this.state.todoList;
     const todoItem_new = { id: _.uniqueId(), text: todoText, complete: false };
-
-    todoList_next.push(todoItem_new);
-
+    todoList.push(todoItem_new);
     this.setState({
-      todoList: todoList_next
+      todoList: todoList
     });
   }
 
   handle_toggleTodo(id) {
-    const todoList_prev = this.state.todoList;
-    const todoList_next = todoList_prev.map( todoItem_prev=>{
-      let todoItem_next;
-
-      if (id === todoItem_prev.id) {
-        todoItem_next = {
-          ...todoItem_prev,
-          complete: !todoItem_prev.complete
-        };
-      } else {
-        todoItem_next = todoItem_prev;
+    const todoList = this.state.todoList;
+    todoList.map( todoItem => {
+      if (id === todoItem.id) {
+        todoItem.complete = !todoItem.complete
       }
-
-      return todoItem_next;
+      return todoItem;
     });
 
     this.setState({
-      todoList: todoList_next
+      todoList
     });
   }
 
   handle_deleteTodo(id) {
-    const todoList_prev = this.state.todoList;
-    const todoList_next = todoList_prev.filter(
+    const todoList = this.state.todoList;
+    const todoList_itemDeleted = todoList.filter(
       todoItem_prev=>(id !== todoItem_prev.id)
     );
 
     this.setState({
-      todoList: todoList_next
+      todoList: todoList_itemDeleted
     });
   }
 
